@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/Button_Script.gd" type="Script" id=1]
+[ext_resource path="res://UI/Button Handler.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+buttonPath = NodePath("Buttons/Scene Buttons")
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Scene Buttons" type="VBoxContainer" parent="Buttons"]
+margin_right = 40.0
+margin_bottom = 20.0
+
+[node name="Play" type="Button" parent="Buttons/Scene Buttons"]
+margin_right = 40.0
+margin_bottom = 20.0
+text = "Play"
+script = ExtResource( 1 )
+scene_to_load = "res://Levels/Testing Level.tscn"
