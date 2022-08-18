@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Dev Texture.jpg-a0253406ae7b1c87cd1a02eb910d6cce.s3tc.stex"
-path.etc2="res://.import/Dev Texture.jpg-a0253406ae7b1c87cd1a02eb910d6cce.etc2.stex"
+path.s3tc="res://.import/Dev Texture.jpg-8cc070f25af1023e21058ba5b97eb31f.s3tc.stex"
+path.etc2="res://.import/Dev Texture.jpg-8cc070f25af1023e21058ba5b97eb31f.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Dev Texture.jpg"
-dest_files=[ "res://.import/Dev Texture.jpg-a0253406ae7b1c87cd1a02eb910d6cce.s3tc.stex", "res://.import/Dev Texture.jpg-a0253406ae7b1c87cd1a02eb910d6cce.etc2.stex" ]
+source_file="res://Assets/Textures/Dev Texture.jpg"
+dest_files=[ "res://.import/Dev Texture.jpg-8cc070f25af1023e21058ba5b97eb31f.s3tc.stex", "res://.import/Dev Texture.jpg-8cc070f25af1023e21058ba5b97eb31f.etc2.stex" ]
 
 [params]
 
