@@ -3,7 +3,7 @@ extends KinematicBody
 
 # Stats
 export(int) var MaxHelth
-var inventory = {}
+var inventory = [{"ID":0,"quantity": 1},{"ID":2,"quantity": 1,"Color": "Red"}]
 
 # Physics
 export(int) var movementSpeed		# How fast the player can move.
