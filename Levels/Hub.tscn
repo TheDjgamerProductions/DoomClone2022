@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Textures/Dev Texture.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Door.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/L1.jpg" type="Texture" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -9,12 +11,20 @@
 albedo_texture = ExtResource( 2 )
 uv1_scale = Vector3( 10, 10, 10 )
 
-[sub_resource type="CameraTexture" id=3]
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.262745, 0.262745, 0.262745, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 3 )
 
 [node name="Spatial" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125834, -2.88845, -0.346152 )
+transform = Transform( 0.923177, 0, 0.384376, 0, 1, 0, -0.384376, 0, 0.923177, -11.9369, 5.20817, -40.1634 )
+lookSensitivity = 2.0
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]
 transform = Transform( 0.72, 0, 0, 0, 0.72, 0, 0, 0, 0.72, 0.0370617, -0.0634069, 0.421487 )
@@ -37,10 +47,45 @@ height = 16.3578
 depth = 8.32502
 
 [node name="CSGBox2" type="CSGBox" parent="CSGCylinder"]
-transform = Transform( 0.922653, 0, 0.385632, 0, 1, 0, -0.385632, 0, 0.922653, -21.7082, 6.88702, -69.3132 )
-width = 12.3407
-height = 2.06623
+transform = Transform( 0.922653, 0, 0.385632, 0, 1, 0, -0.385632, 0, 0.922653, -21.8441, 7.70098, -69.6456 )
+width = 4.74286
+height = 4.7309
 depth = 0.422626
 
 [node name="Sprite3D" type="Sprite3D" parent="CSGCylinder/CSGBox2"]
-texture = SubResource( 3 )
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0917377, 0, 0.219482 )
+texture = ExtResource( 4 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="CSGCylinder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.5045, 0 )
+radius = 8.93676
+height = 59.9175
+material = SubResource( 4 )
+
+[node name="CSGCylinder3" type="CSGCylinder" parent="CSGCylinder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.5045, 0 )
+operation = 2
+radius = 6.69358
+height = 59.4984
+material = SubResource( 5 )
+
+[node name="CSGBox3" type="CSGBox" parent="CSGCylinder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.29973, -5.93429, -0.452343 )
+operation = 2
+width = 7.37451
+height = 10.6407
+depth = 5.80187
+
+[node name="CSGBox4" type="CSGBox" parent="CSGCylinder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.29973, 16.9102, -0.452343 )
+operation = 2
+width = 7.37451
+height = 10.6407
+depth = 5.80187
+
+[node name="CSGBox5" type="CSGBox" parent="CSGCylinder"]
+transform = Transform( 0.922721, 0.0119959, -0.385282, 0.0101204, -0.999925, -0.00689542, -0.385336, 0.00246333, -0.922773, -22.6794, -3.20655, -70.7961 )
+width = 20.9026
+height = 17.0594
+depth = 0.248022
+material = SubResource( 3 )
