@@ -56,6 +56,7 @@ lookSensitivity = 0.5
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 4.98663, 0, 0, 0, 0.161817, 0, 0, 0, 4.39638, -3.0265, 7.60804, 6.46377 )
 mesh = SubResource( 4 )
+material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance"]
 
@@ -65,6 +66,7 @@ shape = SubResource( 5 )
 [node name="MeshInstance2" type="MeshInstance" parent="."]
 transform = Transform( 2.6178, 0, 0, 0, 0.17184, 0, 0, 0, 1.55283, -3.03641, 7.94995, -4.53784 )
 mesh = SubResource( 4 )
+material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance2"]
 
@@ -74,6 +76,7 @@ shape = SubResource( 6 )
 [node name="MeshInstance3" type="MeshInstance" parent="."]
 transform = Transform( 4.32204, 0, 0, 0, 0.487651, 0, 0, 0, 1.41815, -3.87626, 8.28078, -14.2561 )
 mesh = SubResource( 4 )
+material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance3"]
 
@@ -83,6 +86,7 @@ shape = SubResource( 7 )
 [node name="MeshInstance4" type="MeshInstance" parent="."]
 transform = Transform( 4.39627, 0, 0, 0, 0.273051, 0, 0, 0, 2.12878, -3.2756, 10.4648, -23.1321 )
 mesh = SubResource( 4 )
+material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance4"]
 

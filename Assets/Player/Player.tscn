@@ -7,7 +7,15 @@ radius = 1.19645
 height = 2.84061
 
 [node name="Player" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112228, -0.0908833, 0.0243912 )
 script = ExtResource( 1 )
+MaxHelth = 100
+movementSpeed = 15
+jumpStrength = 10
+gravity = 25
+minCamVerticalAngle = -90
+maxCamVerticalAngle = 90
+lookSensitivity = 0.5
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
@@ -16,3 +24,4 @@ shape = SubResource( 1 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 8.74228e-08, 1.39091e-08, -8.74228e-08, 1, 8.74228e-08, -1.39091e-08, -8.74228e-08, 1, -0.0700243, 1.36751, -1.01912 )
 current = true
+far = 1e+08

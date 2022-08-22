@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Textures/Dev Texture.jpg" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 10, 10, 10 )
+
+[sub_resource type="CameraTexture" id=3]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125834, -2.88845, -0.346152 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 0.72, 0, 0, 0, 0.72, 0, 0, 0, 0.72, 0.0370617, -0.0634069, 0.421487 )
+use_collision = true
+radius = 83.1544
+height = 23.2237
+material = SubResource( 1 )
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="CSGCylinder"]
+operation = 2
+radius = 78.7769
+height = 22.6382
+material = SubResource( 2 )
+
+[node name="CSGBox" type="CSGBox" parent="CSGCylinder"]
+transform = Transform( 0.936623, 0, 0.350338, 0, 1, 0, -0.350338, 0, 0.936623, -22.0725, -3.14311, -70.7178 )
+operation = 2
+width = 16.6053
+height = 16.3578
+depth = 8.32502
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCylinder"]
+transform = Transform( 0.922653, 0, 0.385632, 0, 1, 0, -0.385632, 0, 0.922653, -21.7082, 6.88702, -69.3132 )
+width = 12.3407
+height = 2.06623
+depth = 0.422626
+
+[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder/CSGBox2"]
+texture = SubResource( 3 )

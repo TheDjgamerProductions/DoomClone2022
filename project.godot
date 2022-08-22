@@ -14,10 +14,6 @@ config/name="FPS"
 run/main_scene="res://UI/Main Menu/Main Menu.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-Global="*res://global.gd"
-
 [input]
 
 p_foward={
