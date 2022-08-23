@@ -26,7 +26,7 @@ albedo_texture = ExtResource( 3 )
 [node name="Spatial" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.923177, 0, 0.384376, 0, 1, 0, -0.384376, 0, 0.923177, -11.9369, 5.20817, -40.1634 )
+transform = Transform( 0.923177, 0, 0.384376, 0, 1, 0, -0.384376, 0, 0.923177, -9.84343, -6.79182, -38.9343 )
 lookSensitivity = 2.0
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]
