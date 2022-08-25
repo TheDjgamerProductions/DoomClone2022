@@ -24,6 +24,7 @@ albedo_color = Color( 0.262745, 0.262745, 0.262745, 1 )
 albedo_texture = ExtResource( 3 )
 
 [node name="Spatial" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000810623, 0, 0.000140667 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.923177, 0, 0.384376, 0, 1, 0, -0.384376, 0, 0.923177, -9.84343, -6.79182, -38.9343 )

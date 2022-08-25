@@ -45,13 +45,6 @@ light_energy = 1.587
 
 [node name="KinematicBody" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20934, 8.95785, 6.19151 )
-MaxHelth = 100
-movementSpeed = 15
-jumpStrength = 10
-gravity = 25
-minCamVerticalAngle = -90
-maxCamVerticalAngle = 90
-lookSensitivity = 0.5
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 4.98663, 0, 0, 0, 0.161817, 0, 0, 0, 4.39638, -3.0265, 7.60804, 6.46377 )
