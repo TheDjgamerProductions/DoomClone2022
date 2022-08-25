@@ -10,7 +10,6 @@ extents = Vector3( 1, 0.40608, 1 )
 [node name="Keycard Door" type="MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 0.728847, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 2 )
-material/0 = null
 script = ExtResource( 1 )
 
 [node name="Area" type="Area" parent="."]

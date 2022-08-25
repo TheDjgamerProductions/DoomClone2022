@@ -1,0 +1,177 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Textures/Wall Testing.material" type="Material" id=2]
+[ext_resource path="res://Assets/Models/Tables and Counters/Table.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Textures/Window.material" type="Material" id=4]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Rooms" type="CSGBox" parent="."]
+transform = Transform( 2.61972, 0, 0, 0, 3.15083, 0, 0, 0, 2.90922, 0, 0, 0 )
+use_collision = true
+width = 31.5636
+height = 7.23935
+depth = 19.6124
+
+[node name="CSGBox2" type="CSGBox" parent="Rooms"]
+operation = 2
+width = 29.084
+height = 7.00282
+depth = 17.6201
+material = ExtResource( 2 )
+
+[node name="CSGBox3" type="CSGBox" parent="Rooms"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -22.4635 )
+width = 27.2087
+height = 7.23935
+depth = 8.17587
+material = ExtResource( 2 )
+
+[node name="CSGBox4" type="CSGBox" parent="Rooms"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.316977, 0, -22.0652 )
+operation = 2
+width = 27.876
+height = 7.02328
+depth = 7.38617
+material = ExtResource( 2 )
+
+[node name="CSGBox" type="CSGBox" parent="Rooms"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3993, 4.87327, -24.2689 )
+width = 44.7624
+height = 17.9757
+depth = 21.5089
+material = ExtResource( 2 )
+
+[node name="CSGBox5" type="CSGBox" parent="Rooms"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7017, 4.87327, -24.2689 )
+operation = 2
+width = 43.3008
+height = 17.2257
+depth = 21.167
+material = ExtResource( 2 )
+
+[node name="CSGBox6" type="CSGBox" parent="Rooms"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.55747, -0.0356021, -24.2689 )
+operation = 2
+width = 7.0038
+height = 6.97533
+depth = 21.1144
+material = ExtResource( 2 )
+
+[node name="CSGBox7" type="CSGBox" parent="Rooms"]
+transform = Transform( -4.37114e-08, 0, 0.999999, 0, 1, 0, -1, 0, -4.37114e-08, 44.8198, -0.36275, -0.0992468 )
+width = 27.2087
+height = 7.23935
+depth = 8.17587
+material = ExtResource( 2 )
+
+[node name="CSGBox9" type="CSGBox" parent="Rooms"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 44.3674, -0.657, 19.4832 )
+width = 29.084
+height = 7.00282
+depth = 17.6201
+material = ExtResource( 2 )
+
+[node name="CSGBox10" type="CSGBox" parent="Rooms"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 44.3674, -0.657, 19.4861 )
+operation = 2
+width = 28.1336
+height = 5.62312
+depth = 17.6087
+material = ExtResource( 2 )
+
+[node name="CSGBox8" type="CSGBox" parent="Rooms"]
+transform = Transform( -4.37114e-08, 0, 0.999999, 0, 1, 0, -1, 0, -4.37114e-08, 44.5375, -0.168162, -1.16656 )
+operation = 2
+width = 25.4789
+height = 6.5941
+depth = 5.89104
+material = ExtResource( 2 )
+
+[node name="CSGBox11" type="CSGBox" parent="Rooms"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 64.5354, 1.22842, 21.8036 )
+width = 12.259
+height = 2.14104
+material = ExtResource( 2 )
+
+[node name="CSGBox12" type="CSGBox" parent="Rooms"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 64.3089, 1.22842, 21.8036 )
+operation = 2
+width = 11.9308
+height = 2.13227
+depth = 1.91241
+material = ExtResource( 2 )
+
+[node name="CSGBox13" type="CSGBox" parent="Rooms"]
+transform = Transform( -0.999999, 0, -9.70837e-08, 0, 1, 0, 7.87231e-08, 0, -1, -20.6815, -2.42158, 7.81168 )
+width = 12.259
+height = 2.14104
+material = ExtResource( 2 )
+
+[node name="CSGBox14" type="CSGBox" parent="Rooms"]
+transform = Transform( -0.999999, 0, -9.70837e-08, 0, 1, 0, 7.87231e-08, 0, -1, -20.455, -2.42158, 7.81168 )
+operation = 2
+width = 11.9308
+height = 2.13227
+depth = 1.91241
+material = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -55.0727, -9.21286, 23.8431 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71185, -6.20851, 15.208 )
+use_collision = true
+width = 64.9044
+height = 9.21204
+depth = 0.712845
+material = ExtResource( 2 )
+
+[node name="CSGBox" type="CSGBox" parent="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5352, 0.00729609, -0.00773335 )
+width = 5.22004
+height = 4.09574
+depth = 0.728446
+material = ExtResource( 4 )
+
+[node name="CSGBox2" type="CSGBox" parent="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5352, 0.00729609, -0.00773335 )
+width = 5.22004
+height = 4.09574
+depth = 0.728446
+material = ExtResource( 4 )
+
+[node name="CSGBox3" type="CSGBox" parent="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5352, 0.00729609, -0.00773335 )
+width = 5.22004
+height = 4.09574
+depth = 0.728446
+material = ExtResource( 4 )
+
+[node name="CSGBox4" type="CSGBox" parent="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.53517, 0.00729609, -0.00773335 )
+width = 5.22004
+height = 4.09574
+depth = 0.728446
+material = ExtResource( 4 )
+
+[node name="CSGBox5" type="CSGBox" parent="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.464826, 0.00729609, -0.00773335 )
+width = 5.22004
+height = 4.09574
+depth = 0.728446
+material = ExtResource( 4 )
+
+[node name="CSGBox6" type="CSGBox" parent="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.46483, 0.00729609, -0.00773335 )
+width = 5.22004
+height = 4.09574
+depth = 0.728446
+material = ExtResource( 4 )
+
+[node name="Table" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.09589, -9.14347, 16.579 )
+
+[node name="Enmeny Place Holder" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8827, -10.1612, -3.21274 )

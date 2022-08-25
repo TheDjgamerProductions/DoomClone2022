@@ -1,0 +1,27 @@
+[gd_scene format=2]
+
+[node name="Table" type="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24371, 1.57277, 0.117447 )
+use_collision = true
+height = 0.119547
+depth = 3.73511
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668769, -0.884604, 1.43622 )
+radius = 0.319586
+height = 1.78205
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668769, -0.884604, -1.5436 )
+radius = 0.319586
+height = 1.78205
+
+[node name="CSGCylinder3" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.627684, -0.884604, 1.43622 )
+radius = 0.319586
+height = 1.78205
+
+[node name="CSGCylinder4" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.627684, -0.884604, -1.56378 )
+radius = 0.319586
+height = 1.78205
