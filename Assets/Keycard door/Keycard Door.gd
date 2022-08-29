@@ -1,8 +1,11 @@
-extends MeshInstance
+extends Spatial
 
 var playerNear = false
-onready var collider = get_node("StaticBody/CollisionShape")
+onready var collider = get_node("Keycard Door/StaticBody/CollisionShape")
 export(String) var keycard_colour
+onready var tween = get_node("Tween")
+onready var closedPosition = self.global_transform.origin
+export(int) var openHight
 
 
 # Declare member variables here. Examples:
@@ -12,22 +15,23 @@ export(String) var keycard_colour
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print(closedPosition)
+	hasKeycard("red")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if playerNear && Input.is_action_just_pressed("p_interact"):
-		#Implment if player has keycard later
+		#if hasKeycard(Colour):
+			#open()
 		open()
-		#self.visible = false
-		#collider.disabled = true
 		
 	
 
 
 func _on_Area_body_entered(body:Node):
 	if (body.name) == "Player":
+		print("Player Near")
 		playerNear = true
 
 
@@ -38,9 +42,23 @@ func _on_Area_body_exited(body:Node):
 		playerNear = false
 
 func open():
-	var x = 0
-	while (x != 1.5):
-		print(x)
-		translate(Vector3(0,0.1,0))
-		x += 0.1
-		yield(get_tree().create_timer(0.1), "timeout")
+	print("Open")
+	tween.interpolate_property($".","translation",closedPosition,closedPosition + Vector3(0,openHight,0),0.5,tween.TRANS_LINEAR,tween.EASE_IN_OUT)
+	tween.start()
+	yield(get_tree().create_timer(5.0), "timeout")
+	close()
+
+func close():
+	print("Close")
+	tween.interpolate_property($".","translation",self.global_transform.origin,closedPosition,0.5,tween.TRANS_LINEAR,tween.EASE_IN_OUT)
+	tween.start()
+
+
+func hasKeycard(Colour):
+	print(Colour)
+	#for i in Player Inventory:
+		#If Is a key card
+			#if is same colour
+				#return true and break
+
+
