@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Textures/Wall Testing.material" type="Material" id=2]
-[ext_resource path="res://Assets/Textures/Door.jpg" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/L1.jpg" type="Texture" id=4]
+[ext_resource path="res://Assets/Keycard door/Keycard Door.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -12,9 +12,6 @@ albedo_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.262745, 0.262745, 0.262745, 1 )
-
-[sub_resource type="SpatialMaterial" id=3]
-albedo_texture = ExtResource( 3 )
 
 [node name="Spatial" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000810623, 0, 0.000140667 )
@@ -80,9 +77,6 @@ width = 7.37451
 height = 10.6407
 depth = 5.80187
 
-[node name="CSGBox5" type="CSGBox" parent="CSGCylinder"]
-transform = Transform( 0.922721, 0.0119959, -0.385282, 0.0101204, -0.999925, -0.00689542, -0.385336, 0.00246333, -0.922773, -22.6794, -3.20655, -70.7961 )
-width = 20.9026
-height = 17.0594
-depth = 0.248022
-material = SubResource( 3 )
+[node name="Keycard Door" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.920943, 0, 0.102464, 0, 1.27733, 0, -0.3772, 0, 0.250168, -16.2767, -2.98443, -50.3344 )
+openHight = 14
