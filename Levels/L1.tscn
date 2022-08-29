@@ -121,10 +121,10 @@ material = ExtResource( 2 )
 transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -55.0727, -9.21286, 23.8431 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71185, -6.20851, 15.208 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71185, -6.85567, 15.208 )
 use_collision = true
 width = 64.9044
-height = 9.21204
+height = 11.9199
 depth = 0.712845
 material = ExtResource( 2 )
 
@@ -171,7 +171,34 @@ depth = 0.728446
 material = ExtResource( 4 )
 
 [node name="Table" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.09589, -9.14347, 16.579 )
+transform = Transform( -6.01482e-08, 0, 1.37603, 0, 1.42983, 0, -1.41581, 0, -6.1887e-08, -1.11024, -8.72069, 16.9357 )
 
 [node name="Enmeny Place Holder" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8827, -10.1612, -3.21274 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2088, -12.6769, -72.6396 )
+use_collision = true
+height = 23.6753
+depth = 70.8717
+
+[node name="Platforms" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="CSGBox3" type="CSGBox" parent="Platforms"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 111.728, -5.46067, 60.9177 )
+width = 7.09918
+depth = 7.64087
+
+[node name="CSGBox4" type="CSGBox" parent="Platforms"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 122.673, -2.03723, 60.9794 )
+width = 7.09918
+depth = 7.64087
+
+[node name="CSGBox5" type="CSGBox" parent="Platforms"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 140.845, -2.03723, 60.9794 )
+width = 7.09918
+depth = 7.64087
+
+[node name="Table2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -6.01482e-08, 0, 1.37603, 0, 1.42983, 0, -1.41581, 0, -6.1887e-08, 128.42, -8.48951, 32.5852 )

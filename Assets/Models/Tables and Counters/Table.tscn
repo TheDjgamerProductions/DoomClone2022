@@ -1,27 +1,43 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Textures/Wood/Wood_02-128x128.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/Wood/Wood_11-128x128.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 10, 10, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 5, 5, 1 )
 
 [node name="Table" type="CSGBox"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24371, 1.57277, 0.117447 )
 use_collision = true
 height = 0.119547
-depth = 3.73511
+depth = 3.95901
+material = SubResource( 1 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668769, -0.884604, 1.43622 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668769, -0.884604, 1.63771 )
 radius = 0.319586
 height = 1.78205
+material = SubResource( 2 )
 
 [node name="CSGCylinder2" type="CSGCylinder" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668769, -0.884604, -1.5436 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668769, -0.884604, -1.62965 )
 radius = 0.319586
 height = 1.78205
+material = SubResource( 2 )
 
 [node name="CSGCylinder3" type="CSGCylinder" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.627684, -0.884604, 1.43622 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.627684, -0.884604, 1.63771 )
 radius = 0.319586
 height = 1.78205
+material = SubResource( 2 )
 
 [node name="CSGCylinder4" type="CSGCylinder" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.627684, -0.884604, -1.56378 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.627684, -0.884604, -1.64983 )
 radius = 0.319586
 height = 1.78205
+material = SubResource( 2 )
