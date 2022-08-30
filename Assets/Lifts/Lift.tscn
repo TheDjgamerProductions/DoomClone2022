@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Lifts/Lift.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Textures/Dev Texture.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Window.material" type="Material" id=3]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="CylinderShape" id=1]
+radius = 1.94395
+height = 3.09971
+
+[node name="Lift" type="CSGCylinder"]
+radius = 2.65018
+height = 9.76082
+script = ExtResource( 1 )
+moveOnStart = true
+moveHight = 5
+
+[node name="Shaft" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00645208, 0, 0 )
+operation = 2
+radius = 2.55299
+height = 9.71032
+material = SubResource( 2 )
+
+[node name="Cab" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.181423, 0 )
+radius = 2.45618
+height = 3.00028
+
+[node name="Cab" type="CSGCylinder" parent="Cab"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00131556, -0.0044508, 0.00294024 )
+operation = 2
+radius = 2.24085
+height = 2.92386
+material = ExtResource( 3 )
+
+[node name="Area" type="Area" parent="Cab"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Cab/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0773768, 0 )
+shape = SubResource( 1 )
+
+[node name="Door" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79671, 0, 0 )
+operation = 2
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="body_entered" from="Cab/Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Cab/Area" to="." method="_on_Area_body_exited"]

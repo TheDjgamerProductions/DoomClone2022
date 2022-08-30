@@ -45,6 +45,12 @@ func _process (delta):
 
 
 func _input (event):
+	if event.is_action_pressed("p_interact"):
+		print("Interact")
+		if $Camera/RayCast.is_colliding():
+			var raycastObject = $Camera/RayCast.get_collider()
+			if canPickup(raycastObject):
+				print("Can pick up") 
 	if event.is_action_pressed("p_shoot"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -86,3 +92,9 @@ func _physics_process(delta):
 		# jump if we press the jump button and are standing on the floor
 		if Input.is_action_pressed("p_jump") and is_on_floor():
 			playerVelocity.y = jumpStrength
+
+func canPickup(item):
+	if item.isItem:
+		print("is item")
+	else:
+		print("Not Item")

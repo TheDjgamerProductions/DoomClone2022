@@ -178,7 +178,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8827, -10.1612, -3.21274 )
 
 [node name="CSGBox2" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2088, -12.6769, -72.6396 )
-use_collision = true
 height = 23.6753
 depth = 70.8717
 
