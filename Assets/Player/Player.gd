@@ -49,8 +49,8 @@ func _input (event):
 		print("Interact")
 		if $Camera/RayCast.is_colliding():
 			var raycastObject = $Camera/RayCast.get_collider()
-			if canPickup(raycastObject):
-				print("Can pick up") 
+			#if canPickup(raycastObject):
+			#	print("Can pick up") 
 	if event.is_action_pressed("p_shoot"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

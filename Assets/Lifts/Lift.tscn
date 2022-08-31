@@ -12,6 +12,7 @@ radius = 1.94395
 height = 3.09971
 
 [node name="Lift" type="CSGCylinder"]
+use_collision = true
 radius = 2.65018
 height = 9.76082
 script = ExtResource( 1 )
