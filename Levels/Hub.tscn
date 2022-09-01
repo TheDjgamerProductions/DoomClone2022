@@ -79,10 +79,12 @@ width = 7.37451
 height = 10.6407
 depth = 5.80187
 
+[node name="Lift" parent="CSGCylinder" instance=ExtResource( 3 )]
+transform = Transform( 2.78308, 0, 0, 0, 4.20935, 0, 0, 0, 2.47485, -12.271, -5.73682, -21.7436 )
+height = 12.7187
+moveOnStart = false
+moveHight = 10
+
 [node name="Keycard Door" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.920943, 0, 0.102464, 0, 1.27733, 0, -0.3772, 0, 0.250168, -16.2767, -2.98443, -50.3344 )
 openHight = 14
-
-[node name="Lift" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2.00382, 0, 0, 0, 3.03073, 0, 0, 0, 1.78189, -8.79807, -4.19392, -15.2339 )
-moveOnStart = false

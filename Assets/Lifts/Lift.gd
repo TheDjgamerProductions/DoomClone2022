@@ -27,7 +27,7 @@ func _ready():
 func _physics_process(delta):
 	if playerIn && Input.is_action_just_pressed("p_interact"):
 		print("move")
-		move($"Cab".global_transform.origin, $Cab.global_transform.origin + Vector3(0,moveHight,0),5)
+		move($"Cab".global_transform.origin + Vector3(0,4,0), $Cab.global_transform.origin + Vector3(0,moveHight,0),5)
 
 
 func _on_Area_body_entered(body:Node):
