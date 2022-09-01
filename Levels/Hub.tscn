@@ -19,6 +19,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000810623, 0, 0.000140667 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.923177, 0, 0.384376, 0, 1, 0, -0.384376, 0, 0.923177, -9.84343, -6.79182, -38.9343 )
+collision_layer = 0
 lookSensitivity = 2.0
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]

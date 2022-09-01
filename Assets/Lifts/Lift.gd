@@ -6,12 +6,13 @@ export(String) var direction = "Up"
 export(bool) var moveOnStart
 export(int) var moveHight
 onready var tween = $"Tween"
-
+onready var pTween = $"PlayerTween"
+var playerNode
 
 
 # Declare member variables here. Examples:
 # var a = 2
-# var b = "text"
+# var b = "text"-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +32,7 @@ func _physics_process(delta):
 
 func _on_Area_body_entered(body:Node):
 	if body.name == "Player":
-		print("player In")
+		playerNode = body
 		playerIn = true
 
 
@@ -41,8 +42,6 @@ func _on_Area_body_exited(body:Node):
 
 
 func move(startPos,endingPos,time):
-	print(startPos.y)
-	print(endingPos.y)
 	$Door.visible = false
 	tween.interpolate_property($"Cab","translation:y",startPos.y,endingPos.y,time,tween.TRANS_LINEAR,tween.EASE_IN_OUT)
 	tween.start()

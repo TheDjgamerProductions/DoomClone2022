@@ -8,8 +8,8 @@
 albedo_texture = ExtResource( 2 )
 
 [sub_resource type="CylinderShape" id=1]
-radius = 1.94395
 height = 3.09971
+radius = 1.94395
 
 [node name="Lift" type="CSGCylinder"]
 use_collision = true
@@ -49,6 +49,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79671, 0, 0 )
 operation = 2
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="PlayerTween" type="Tween" parent="."]
 
 [connection signal="body_entered" from="Cab/Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Cab/Area" to="." method="_on_Area_body_exited"]
