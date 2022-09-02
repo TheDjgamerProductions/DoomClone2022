@@ -8,13 +8,13 @@
 albedo_texture = ExtResource( 2 )
 
 [sub_resource type="CylinderShape" id=1]
-height = 3.09971
 radius = 1.94395
+height = 3.09971
 
 [node name="Lift" type="CSGCylinder"]
 use_collision = true
 radius = 2.65018
-height = 9.76082
+height = 30.9527
 script = ExtResource( 1 )
 moveOnStart = true
 moveHight = 5
@@ -23,7 +23,7 @@ moveHight = 5
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00645208, 0, 0 )
 operation = 2
 radius = 2.55299
-height = 9.71032
+height = 29.4167
 material = SubResource( 2 )
 
 [node name="Cab" type="CSGCylinder" parent="."]

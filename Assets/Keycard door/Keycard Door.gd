@@ -2,10 +2,12 @@ extends Spatial
 
 var playerNear = false
 onready var collider = get_node("Keycard Door/StaticBody/CollisionShape")
-export(String) var keycard_colour
+export(Color) var keycard_colour
+export(bool) var needsKeycard
 onready var tween = get_node("Tween")
 onready var closedPosition = self.global_transform.origin
 export(int) var openHight
+var playerNode
 
 
 # Declare member variables here. Examples:
@@ -15,23 +17,27 @@ export(int) var openHight
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var material = $"Keycard Door".get_surface_material(0)
+	material.albedo_color = keycard_colour
 	print(closedPosition)
-	hasKeycard("red")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if playerNear && Input.is_action_just_pressed("p_interact"): #Checks if the player is near and has pressed the interact key
-		#if hasKeycard(Colour):
-			#open()
-		open()
+		if needsKeycard:
+			print("Needs keycard")
+			if hasKeycard(keycard_colour):
+				open()
+		else:
+			open()
 		
 	
 
 #Checks if the body entered is a player
 func _on_Area_body_entered(body:Node):
 	if (body.name) == "Player":
-		print("Player Near")
+		playerNode = body
 		playerNear = true
 
 
@@ -58,11 +64,13 @@ func close():
 	tween.start() #play the tween
 
 
-func hasKeycard(Colour):
-	print(Colour)
-	#for i in Player Inventory:
-		#If Is a key card
-			#if is same colour
-				#return true and break
+func hasKeycard(DoorColour):
+	print(playerNode.inventory)
+	for i in playerNode.inventory:
+		if i.ID == 2:
+			if i.Color == DoorColour:
+				return(true)
+		else:
+			print("AAAAAAAAAAAAAAAAAA")
 
 

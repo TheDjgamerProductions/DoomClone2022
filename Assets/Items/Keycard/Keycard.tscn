@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[sub_resource type="PlaneMesh" id=1]
+[ext_resource path="res://Assets/Items/Keycard/Keycard.gd" type="Script" id=1]
 
-[node name="Spatial" type="MeshInstance"]
-transform = Transform( 0.791277, 0, 0, 0, 1, 0, 0, 0, 0.597813, 0, 0, 0 )
-mesh = SubResource( 1 )
-material/0 = null
+[sub_resource type="SpatialMaterial" id=1]
+
+[node name="Spatial" type="CSGBox"]
+transform = Transform( 0.331993, 0, 0, 0, 0.0142222, 0, 0, 0, 0.250822, 0.00739473, 0, -8.38041e-05 )
+use_collision = true
+material = SubResource( 1 )
+script = ExtResource( 1 )

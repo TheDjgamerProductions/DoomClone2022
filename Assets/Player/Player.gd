@@ -3,7 +3,7 @@ extends KinematicBody
 
 # Stats
 export(int) var MaxHelth
-var inventory = [{"ID":0,"quantity": 1},{"ID":2,"quantity": 1,"Color": "Red"}]
+var inventory = []
 
 # Physics
 export(int) var movementSpeed		# How fast the player can move.
@@ -49,8 +49,10 @@ func _input (event):
 		print("Interact")
 		if $Camera/RayCast.is_colliding():
 			var raycastObject = $Camera/RayCast.get_collider()
-			#if canPickup(raycastObject):
-			#	print("Can pick up") 
+			print(raycastObject.name)
+			if canPickup(raycastObject):
+				pickupItem(raycastObject)
+				raycastObject.queue_free()
 	if event.is_action_pressed("p_shoot"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -94,7 +96,20 @@ func _physics_process(delta):
 			playerVelocity.y = jumpStrength
 
 func canPickup(item):
-	if item.isItem:
-		print("is item")
+	if "Item" in item.name:
+		return(true)
 	else:
-		print("Not Item")
+		return(false)
+
+func pickupItem(item):
+	if item.itemID == 2:
+		inventory.append({"ID":2,"quantity": 1,"Color": item.Colour})
+		print(inventory)
+		return
+	for i in inventory:
+		if i.ID == item.itemID:
+			i.quantity += 1
+			print(inventory)
+			return
+	inventory.append({"ID":item.itemID,"quantity": 1})
+	print(inventory)

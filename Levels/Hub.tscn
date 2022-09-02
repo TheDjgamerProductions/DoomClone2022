@@ -20,7 +20,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000810623, 0, 0.000140667 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.923177, 0, 0.384376, 0, 1, 0, -0.384376, 0, 0.923177, -9.84343, -6.79182, -38.9343 )
 collision_layer = 0
-lookSensitivity = 2.0
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]
 transform = Transform( 0.72, 0, 0, 0, 0.72, 0, 0, 0, 0.72, 0.0370617, -0.0634069, 0.421487 )
@@ -79,11 +78,34 @@ width = 7.37451
 height = 10.6407
 depth = 5.80187
 
-[node name="Lift" parent="CSGCylinder" instance=ExtResource( 3 )]
-transform = Transform( 2.78308, 0, 0, 0, 4.20935, 0, 0, 0, 2.47485, -12.271, -5.73682, -21.7436 )
-height = 12.7187
+[node name="L1 Area" type="CSGCombiner" parent="CSGCylinder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.510846, 2.49998, 0.644737 )
+
+[node name="CSGBox" type="CSGBox" parent="CSGCylinder/L1 Area"]
+transform = Transform( 0.925011, 0, 0.379941, 0, 1, 0, -0.379941, 0, 0.925011, -32.1439, -2.70669, -94.4776 )
+width = 39.1997
+height = 22.2994
+depth = 46.1597
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCylinder/L1 Area"]
+transform = Transform( 0.925011, 0, 0.379941, 0, 1, 0, -0.379941, 0, 0.925011, -32.0674, -2.70669, -94.023 )
+operation = 2
+width = 38.8477
+height = 22.2092
+depth = 45.483
+material = ExtResource( 2 )
+
+[node name="Lift" parent="CSGCylinder/L1 Area" instance=ExtResource( 3 )]
+transform = Transform( 1.02944, 0, -2.29932, 0, 4.20935, 0, 2.58569, 0, 0.915429, -37.2696, -8.06543, -104.859 )
+height = 30.0188
+targetScene = "res://Levels/L1.tscn"
 moveOnStart = false
 moveHight = 10
+
+[node name="CSGCylinder" type="CSGCylinder" parent="CSGCylinder/L1 Area"]
+transform = Transform( 0.841746, 0, 0.539873, 0, 1, 0, -0.539873, 0, 0.841746, -37.3516, 8.16637, -104.848 )
+operation = 2
+radius = 5.84753
 
 [node name="Keycard Door" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.920943, 0, 0.102464, 0, 1.27733, 0, -0.3772, 0, 0.250168, -16.2767, -2.98443, -50.3344 )

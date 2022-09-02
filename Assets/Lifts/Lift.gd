@@ -27,7 +27,7 @@ func _ready():
 func _physics_process(delta):
 	if playerIn && Input.is_action_just_pressed("p_interact"):
 		print("move")
-		move($"Cab".global_transform.origin + Vector3(0,4,0), $Cab.global_transform.origin + Vector3(0,moveHight,0),5)
+		move($"Cab".global_transform.origin + Vector3(0,4,0), $Cab.global_transform.origin + Vector3(0,moveHight,0),3)
 
 
 func _on_Area_body_entered(body:Node):
@@ -42,12 +42,12 @@ func _on_Area_body_exited(body:Node):
 
 
 func move(startPos,endingPos,time):
-	$Door.visible = false
+	$Door.visible = false #Close the door
 	tween.interpolate_property($"Cab","translation:y",startPos.y,endingPos.y,time,tween.TRANS_LINEAR,tween.EASE_IN_OUT)
-	tween.start()
-	yield(get_tree().create_timer(time), "timeout")
-	$Door.visible = true
-	print($"Cab".global_transform.origin)
+	tween.start() #Move the lift
+	yield(get_tree().create_timer(time), "timeout") #Wait untill the lift has moved
+	if targetScene:
+		get_tree().change_scene(targetScene)
 
 
 	

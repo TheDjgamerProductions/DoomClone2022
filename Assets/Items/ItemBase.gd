@@ -1,6 +1,6 @@
 extends MeshInstance
 
-var isItem = true
+var itemID = 42
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -16,5 +16,3 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func pickup():
-	print("Picking up")

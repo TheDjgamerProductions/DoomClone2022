@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Textures/Wall Testing.material" type="Material" id=2]
 [ext_resource path="res://Assets/Models/Tables and Counters/Table.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Textures/Window.material" type="Material" id=4]
+[ext_resource path="res://Assets/Items/Keycard/Keycard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Keycard door/Keycard Door.tscn" type="PackedScene" id=6]
 
 [node name="Spatial" type="Spatial"]
 
@@ -118,7 +120,7 @@ depth = 1.91241
 material = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -55.0727, -9.21286, 23.8431 )
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -13.6298, -6.57918, 19.792 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71185, -6.85567, 15.208 )
@@ -170,6 +172,11 @@ height = 4.09574
 depth = 0.728446
 material = ExtResource( 4 )
 
+[node name="ItemKeyCard" parent="." instance=ExtResource( 5 )]
+transform = Transform( -2.53125e-08, 0, 0.437498, 0, 0.20743, 0, -0.708781, 0, -2.34069e-08, -2.67186, -8.46272, 16.9224 )
+height = 0.383162
+Colour = Color( 0, 0, 0, 1 )
+
 [node name="Table" parent="." instance=ExtResource( 3 )]
 transform = Transform( -6.01482e-08, 0, 1.37603, 0, 1.42983, 0, -1.41581, 0, -6.1887e-08, -1.11024, -8.72069, 16.9357 )
 
@@ -201,3 +208,8 @@ depth = 7.64087
 
 [node name="Table2" parent="." instance=ExtResource( 3 )]
 transform = Transform( -6.01482e-08, 0, 1.37603, 0, 1.42983, 0, -1.41581, 0, -6.1887e-08, 128.42, -8.48951, 32.5852 )
+
+[node name="Spatial" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5301, -6.07993, 15.198 )
+needsKeycard = true
+openHight = 10
