@@ -17,6 +17,9 @@ func _ready():
 func _process(delta):
 	$Inventory.clear()
 	for i in player.inventory:
+		print(i)
 		var itemID = i.ID
-		print(Global.itemID)
-		$Inventory.add_item("Item: " + str(itemID),null, true)
+		var item = Global.itemDB[itemID]
+		var itemName = item.Name
+		var itemIcon = load(item.Icon)
+		$Inventory.add_item(itemName,itemIcon, true)
