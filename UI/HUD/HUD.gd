@@ -15,11 +15,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$ScoreLabel.text = ("Score: " + str(Global.score))
 	$Inventory.clear()
 	for i in player.inventory:
-		print(i)
 		var itemID = i.ID
 		var item = Global.itemDB[itemID]
 		var itemName = item.Name
 		var itemIcon = load(item.Icon)
 		$Inventory.add_item(itemName,itemIcon, true)
+	$Hart.value = player.currentHealth
+	$HealthLabel.text = str(player.currentHealth)

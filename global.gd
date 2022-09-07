@@ -6,6 +6,7 @@ var itemDB = [
 	{"ID": 2, "Name": "Keycard", "Type": "Keycard","Icon": "res://icon.png", "Model": ""}
  ]
 
+var score = 0
  
 
 # Declare member variables here. Examples:

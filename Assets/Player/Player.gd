@@ -4,6 +4,7 @@ extends KinematicBody
 # Stats
 export(int) var MaxHelth
 var inventory = []
+var currentHealth
 
 # Physics
 export(int) var movementSpeed		# How fast the player can move.
@@ -27,6 +28,7 @@ onready var camera = get_node("Camera")		# "attach" the camera to access from sc
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	currentHealth = MaxHelth
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
@@ -45,6 +47,8 @@ func _process (delta):
 
 
 func _input (event):
+	if event.is_action_pressed("ui_accept"):
+			Global.score += 10
 	if event.is_action_pressed("p_interact"):
 		print("Interact")
 		if $Camera/RayCast.is_colliding():
