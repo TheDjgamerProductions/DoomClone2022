@@ -1,33 +1,41 @@
-extends RigidBody
+extends KinematicBody
 
-onready var navAgent = $"NavigationAgent"
+var path = []
+var path_node = 0
 
+var speed = 10
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+onready var nav = get_parent()
+onready var player = $"../../Player"
+onready var area = $Area
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var player : Spatial = $"../Player/Position3D"
-	#navAgent.set_target_location(player.global_transform.origin)
 	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	print(area.overlaps_body())
 
 func _physics_process(delta):
-	pass
-	# var currentPos = global_transform.origin
-	# var target = navAgent.get_next_location()
-	# #print(target)
-	# var velocity = Vector3()
-	# velocity = target - currentPos * 5
-	# navAgent.set_velocity(velocity)
+	if path_node < path.size():
+		var direction = (path[path_node] - global_transform.origin)
+		if direction.length() < 1:
+			path_node += 1
+		else:
+			print("Movin")
+			move_and_slide(direction.normalized() * speed, Vector3.UP)
+
+func move_to(target_pos):
+	path = nav.get_simple_path(global_transform.origin, target_pos)
+	path_node = 0
 
 
-func _on_NavigationAgent_velocity_computed(safe_velocity):
-	set_linear_velocity(safe_velocity)
+
+
+
+func _on_Area_body_entered(body:Node):
+	if body.name == "Player":
+		move_to(player.global_transform.origin)
+
