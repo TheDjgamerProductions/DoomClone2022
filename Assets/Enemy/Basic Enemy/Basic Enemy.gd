@@ -3,7 +3,9 @@ extends KinematicBody
 var path = []
 var path_node = 0
 
-var speed = 10
+var speed = 15
+var moving = false
+
 
 onready var nav = get_parent()
 onready var player = $"../../Player"
@@ -16,7 +18,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(area.overlaps_body())
+	pass
 
 func _physics_process(delta):
 	if path_node < path.size():
@@ -27,15 +29,25 @@ func _physics_process(delta):
 			print("Movin")
 			move_and_slide(direction.normalized() * speed, Vector3.UP)
 
+
 func move_to(target_pos):
 	path = nav.get_simple_path(global_transform.origin, target_pos)
 	path_node = 0
 
 
+func canMove():
+	var overlapingBodies = area.get_overlapping_bodies()
+	for i in overlapingBodies:
+		if i.name == "Player":
+			return(true)
+	return(false)
 
 
 
-func _on_Area_body_entered(body:Node):
-	if body.name == "Player":
+
+func _on_Timer_timeout():
+	if canMove():
+		print("I see you!!@!")
 		move_to(player.global_transform.origin)
-
+	else:
+		print("Where are you?")

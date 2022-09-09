@@ -233,6 +233,6 @@ width = 7.09918
 depth = 7.64087
 
 [node name="Basic Enemy" parent="Navigation" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 27.5309, -8.4586, 20.7429 )
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 27.5309, -8.4586, -7.57526 )
 
 [node name="Node2D" parent="." instance=ExtResource( 8 )]
