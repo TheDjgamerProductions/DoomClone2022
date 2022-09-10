@@ -34,6 +34,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process (delta):
+	if currentHealth == 0:
+		get_tree().change_scene("res://UI/Death Screen/Death Screen.tscn")
 	# rotate camera along X axis
 	camera.rotation_degrees -= Vector3(rad2deg(mouseDelta.y), 0, 0) * lookSensitivity * delta
 	# clamp the vertical camera rotation
@@ -47,8 +49,6 @@ func _process (delta):
 
 
 func _input (event):
-	if event.is_action_pressed("ui_accept"):
-			Global.score += 10
 	if event.is_action_pressed("p_interact"):
 		print("Interact")
 		if $Camera/RayCast.is_colliding():
@@ -117,3 +117,4 @@ func pickupItem(item):
 			return
 	inventory.append({"ID":item.itemID,"quantity": 1})
 	print(inventory)
+

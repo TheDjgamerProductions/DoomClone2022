@@ -9,6 +9,7 @@ onready var button = get_node(buttonPath)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	for button in button.get_children():
 		button.connect("pressed", self ,"onButton_Pressed", [button.scene_to_load])
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Enemy/Basic Enemy/Basic Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/Window.material" type="Material" id=2]
@@ -12,6 +12,8 @@ data = PoolVector3Array( 0, 0, 1.5, 0, 0, 1.5, 0, -0.1736, 1.4848, 0, 0, 1.5, 0.
 extents = Vector3( 6.63994, 2.40058, 6.04147 )
 
 [sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="CapsuleShape" id=5]
 
 [node name="Basic Enemy" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -38,7 +40,18 @@ shape = SubResource( 3 )
 
 [node name="CSGMesh" type="CSGMesh" parent="Area"]
 transform = Transform( 6.61036, 0, 0, 0, 2.43917, 0, 0, 0, 6.07919, 0, 1.42275, 0.204553 )
+visible = false
 mesh = SubResource( 4 )
 material = ExtResource( 2 )
 
+[node name="HurtArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="HurtArea"]
+transform = Transform( 1.14191, 0, 0, 0, -4.92478e-08, 1.06122, 0, -1.17796, -4.84995e-08, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="Hurt Timer" type="Timer" parent="HurtArea"]
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="HurtArea/Hurt Timer" to="." method="_on_Hurt_Timer_timeout"]

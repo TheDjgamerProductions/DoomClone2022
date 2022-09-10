@@ -26,7 +26,6 @@ func _physics_process(delta):
 		if direction.length() < 1:
 			path_node += 1
 		else:
-			print("Movin")
 			move_and_slide(direction.normalized() * speed, Vector3.UP)
 
 
@@ -47,7 +46,16 @@ func canMove():
 
 func _on_Timer_timeout():
 	if canMove():
-		print("I see you!!@!")
 		move_to(player.global_transform.origin)
-	else:
-		print("Where are you?")
+
+
+func canAttack():
+	var overlapingBodies = $HurtArea.get_overlapping_bodies()
+	for i in overlapingBodies:
+		if i.name == "Player":
+			return(true)
+	return(false)
+
+func _on_Hurt_Timer_timeout():
+	if canAttack():
+		player.currentHealth -= 5
