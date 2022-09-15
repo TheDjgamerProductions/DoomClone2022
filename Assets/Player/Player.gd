@@ -6,6 +6,8 @@ export(int) var MaxHelth
 var inventory = []
 var currentHealth
 
+
+
 # Physics
 export(int) var movementSpeed		# How fast the player can move.
 export(int) var jumpStrength	# How much force used to make player jump
@@ -20,7 +22,9 @@ var mouseDelta : Vector2 = Vector2()			# How much the mouse has moved since last
 
 # player components
 onready var camera = get_node("Camera")		# "attach" the camera to access from script.
-
+onready var holdPosition = $Camera/HoldPosition
+var held_object: Object
+var isHoldng = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -57,6 +61,14 @@ func _input (event):
 			if canPickup(raycastObject):
 				pickupItem(raycastObject)
 				raycastObject.queue_free()
+			elif canMove(raycastObject):
+				isHoldng = true
+				raycastObject.global_transform.origin = holdPosition.global_transform.origin
+				reparent(raycastObject, holdPosition)
+				
+					
+				
+				
 	if event.is_action_pressed("p_shoot"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -118,3 +130,13 @@ func pickupItem(item):
 	inventory.append({"ID":item.itemID,"quantity": 1})
 	print(inventory)
 
+func canMove(item):
+	if ("moveable" in item.name):
+		return(true)
+	else:
+		return(false)
+
+func reparent(child: Node, new_parent: Node):
+	var old_parent = child.get_parent()
+	old_parent.remove_child(child)
+	new_parent.add_child(child)
