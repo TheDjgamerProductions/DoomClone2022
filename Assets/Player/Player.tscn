@@ -32,4 +32,4 @@ enabled = true
 cast_to = Vector3( 0, -4, 0 )
 
 [node name="HoldPosition" type="Spatial" parent="Camera"]
-transform = Transform( 1, 1.21597e-15, 0, 1.21597e-15, 1, 0, 0, 0, 1, 2.98023e-08, -4.76837e-07, -2.36864 )
+transform = Transform( 1, 1.21597e-15, 0, 1.21597e-15, 1, 0, 0, 0, 1, 4.47035e-08, -4.76837e-07, -3.39845 )

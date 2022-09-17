@@ -62,10 +62,15 @@ func _input (event):
 				pickupItem(raycastObject)
 				raycastObject.queue_free()
 			elif canMove(raycastObject):
-				isHoldng = true
-				raycastObject.global_transform.origin = holdPosition.global_transform.origin
-				reparent(raycastObject, holdPosition)
-				
+				if isHoldng:
+					isHoldng = false
+					reparent(raycastObject, get_tree().current_scene)
+					raycastObject.global_transform.origin = holdPosition.global_transform.origin
+				else:
+					isHoldng = true
+					reparent(raycastObject, holdPosition)
+					raycastObject.global_transform.origin = holdPosition.global_transform.origin
+					
 					
 				
 				
