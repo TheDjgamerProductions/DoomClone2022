@@ -6,6 +6,12 @@ var itemDB = [
 	{"ID": 2, "Name": "Keycard", "Type": "Keycard","Icon": "res://icon.png", "Model": ""}
  ]
 
+var enemyDB = [
+	{"ID": 0, "Name": "Basic","DmgMin":5,"DmgMax":10,"Speed":15,"Health":15,"DetectionRadius":5}
+
+
+]
+
 var score = 0
  
 
