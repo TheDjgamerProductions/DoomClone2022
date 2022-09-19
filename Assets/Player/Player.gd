@@ -5,6 +5,7 @@ extends KinematicBody
 export(int) var MaxHelth
 var inventory = []
 var currentHealth
+var tooltipText = ""
 
 
 

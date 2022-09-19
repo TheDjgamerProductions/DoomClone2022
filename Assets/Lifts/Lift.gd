@@ -32,12 +32,14 @@ func _physics_process(delta):
 
 func _on_Area_body_entered(body:Node):
 	if body.name == "Player":
+		body.tooltipText = "Press E to Interact"
 		playerNode = body
 		playerIn = true
 
 
 func _on_Area_body_exited(body:Node):
 	if body.name == "Player":
+		body.tooltipText = ""
 		playerIn = false
 
 

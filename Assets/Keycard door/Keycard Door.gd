@@ -29,6 +29,10 @@ func _physics_process(delta):
 			print("Needs keycard")
 			if hasKeycard(keycard_colour):
 				open()
+			else:
+				playerNode.tooltipText = "I need a keycard..."
+				yield(get_tree().create_timer(1.0), "timeout")
+				playerNode.tooltipText = "Press E to Interact"
 		else:
 			open()
 		
@@ -37,6 +41,7 @@ func _physics_process(delta):
 #Checks if the body entered is a player
 func _on_Area_body_entered(body:Node):
 	if (body.name) == "Player":
+		body.tooltipText = "Press E to Interact"
 		playerNode = body
 		playerNear = true
 
@@ -45,6 +50,7 @@ func _on_Area_body_entered(body:Node):
 #Checks if the body exited was the player
 func _on_Area_body_exited(body:Node):
 	if (body.name) == "Player":
+		body.tooltipText = ""
 		playerNear = false
 
 

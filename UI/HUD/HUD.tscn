@@ -40,3 +40,14 @@ margin_top = 561.0
 margin_right = 1007.0
 margin_bottom = 575.0
 text = "100"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1022.0
+margin_bottom = 601.0
+
+[node name="InteractTip" type="Label" parent="CenterContainer"]
+margin_left = 419.0
+margin_top = 293.0
+margin_right = 602.0
+margin_bottom = 307.0
+text = "Lorem ipsum dolor sit amet."

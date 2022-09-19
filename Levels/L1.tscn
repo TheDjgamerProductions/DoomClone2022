@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Textures/Wall Testing.material" type="Material" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Assets/Items/Keycard/Keycard.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Keycard door/Keycard Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Enemy/Basic Enemy/Basic Enemy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UI/HUD/HUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Movable Objects/Crate.tscn" type="PackedScene" id=9]
 
 [sub_resource type="NavigationMesh" id=1]
@@ -17,7 +16,7 @@ polygons = [ PoolIntArray( 0, 2, 1 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 
 [node name="Spatial" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -13.6298, -6.57918, 19.792 )
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -67.0118, -8.57938, 23.2811 )
 
 [node name="Position3D" type="Position3D" parent="Player"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37646, 0 )
@@ -235,8 +234,6 @@ depth = 7.64087
 
 [node name="Basic Enemy" parent="Navigation" groups=["enemy"] instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 27.5309, -8.4586, -7.57526 )
-
-[node name="Node2D" parent="." instance=ExtResource( 8 )]
 
 [node name="moveableCrate" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, -8.96872, -10.5078 )

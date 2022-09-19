@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 0, 0 )
+spread = 110.47
+gravity = Vector3( -0.408, 1.902, 2.535 )
+
+[sub_resource type="SphereMesh" id=2]
+
+[node name="Particles" type="Particles"]
+visibility_aabb = AABB( -0.351988, -0.329937, -0.445445, 0.760617, 0.659873, 0.89089 )
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 2 )
