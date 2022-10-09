@@ -4,6 +4,7 @@ extends KinematicBody
 # Stats
 export(int) var MaxHelth
 var inventory = []
+var ammo : int = 15
 var currentHealth
 var tooltipText = ""
 
@@ -26,9 +27,12 @@ onready var camera = get_node("Camera")		# "attach" the camera to access from sc
 onready var holdPosition = $Camera/HoldPosition
 var held_object: Object
 var isHoldng = false
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var bulletScene = preload("res://Assets/Bullet/Bullet.tscn")
+onready var bulletPOS = $bulletSpawn
+
+
+
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -54,6 +58,9 @@ func _process (delta):
 
 
 func _input (event):
+	if Input.is_action_just_pressed("p_shoot"):
+		shoot()
+	
 	if event.is_action_pressed("p_interact"):
 		print("Interact")
 		if $Camera/RayCast.is_colliding():
@@ -146,3 +153,9 @@ func reparent(child: Node, new_parent: Node):
 	var old_parent = child.get_parent()
 	old_parent.remove_child(child)
 	new_parent.add_child(child)
+	
+	
+	
+func shoot():
+	var bullet = bulletScene.instance()
+	get_tree().get_current_scene().add_child(bullet)
