@@ -16,6 +16,7 @@ extents = Vector3( 6.63994, 2.40058, 6.04147 )
 [sub_resource type="CubeMesh" id=4]
 
 [sub_resource type="CapsuleShape" id=5]
+height = 0.693865
 
 [node name="Basic Enemy" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -54,6 +55,10 @@ shape = SubResource( 5 )
 
 [node name="Hurt Timer" type="Timer" parent="HurtArea"]
 autostart = true
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1.14191, 0, 0, 0, -4.92478e-08, 1.06122, 0, -1.17796, -4.84995e-08, 0, 0, 0 )
+shape = SubResource( 5 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="HurtArea/Hurt Timer" to="." method="_on_Hurt_Timer_timeout"]

@@ -5,7 +5,8 @@ var path_node = 0
 
 var speed = 15
 var moving = false
-
+var maxHealth = 10
+var health
 
 onready var nav = get_parent()
 onready var player = $"../../Player"
@@ -13,7 +14,7 @@ onready var area = $Area
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	health = maxHealth
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,6 +22,8 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
+	if health == 0:
+		queue_free()
 	if path_node < path.size():
 		var direction = (path[path_node] - global_transform.origin)
 		if direction.length() < 1:
@@ -59,3 +62,5 @@ func canAttack():
 func _on_Hurt_Timer_timeout():
 	if canAttack():
 		player.currentHealth -= 5
+		
+

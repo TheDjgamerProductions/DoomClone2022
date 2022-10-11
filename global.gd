@@ -7,12 +7,14 @@ var itemDB = [
  ]
 
 var enemyDB = [
-	{"ID": 0, "Name": "Basic","DmgMin":5,"DmgMax":10,"Speed":15,"Health":15,"DetectionRadius":5}
+	{"ID": 0, "Name": "Basic","DmgMin":5,"DmgMax":10,"Speed":1,"Health":10,"DetectionRadius":5}
 
 
 ]
 
 var score = 0
+
+var playerNode : Node
  
 
 # Declare member variables here. Examples:
@@ -22,9 +24,15 @@ var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	var player = get_tree().get_nodes_in_group("Player")
+	if player:
+		
+		playerNode = player[0]
+		set_process(false)
+	else:
+		print("sad")

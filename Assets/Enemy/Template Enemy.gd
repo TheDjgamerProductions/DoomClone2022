@@ -36,6 +36,8 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
+	if Health <=0:
+		queue_free()
 	if path_node < path.size():
 		var direction = (path[path_node] - global_transform.origin)
 		if direction.length() < 1:
@@ -45,7 +47,7 @@ func _physics_process(delta):
 
 
 func move_to(target_pos):
-	path = nav.get_simple_path(global_transform.origin, target_pos)
+	path = nav.get_simple_path(global_transform.origin, Vector3(target_pos.x,target_pos.y+5,target_pos.z))
 	path_node = 0
 
 
@@ -75,3 +77,7 @@ func _on_Hurt_Timer_timeout():
 	if canAttack():
 		rng.randomize()
 		player.currentHealth -= rng.randi_range(DmgMin,DmgMax)
+		
+func take_damage(damage):
+	print("tesr")
+	Health -= damage

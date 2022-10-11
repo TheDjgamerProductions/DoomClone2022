@@ -7,7 +7,7 @@
 radius = 1.19645
 height = 2.84061
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=["Player"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112228, -0.0908833, 0.0243912 )
 script = ExtResource( 1 )
 MaxHelth = 100
@@ -35,7 +35,7 @@ cast_to = Vector3( 0, -4, 0 )
 [node name="HoldPosition" type="Spatial" parent="Camera"]
 transform = Transform( 1, 1.21597e-15, 0, 1.21597e-15, 1, 0, 0, 0, 1, 4.47035e-08, -4.76837e-07, -3.39845 )
 
-[node name="HUD" parent="." instance=ExtResource( 2 )]
+[node name="bulletSpawn" type="Spatial" parent="Camera"]
+transform = Transform( 1, -8.74228e-08, -1.39091e-08, 8.74228e-08, 1, -8.74228e-08, 1.39091e-08, 8.74228e-08, 1, 0.0700243, 0.0327501, -1.98088 )
 
-[node name="bulletSpawn" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40026, -3 )
+[node name="HUD" parent="." instance=ExtResource( 2 )]

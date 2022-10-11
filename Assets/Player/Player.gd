@@ -28,7 +28,7 @@ onready var holdPosition = $Camera/HoldPosition
 var held_object: Object
 var isHoldng = false
 onready var bulletScene = preload("res://Assets/Bullet/Bullet.tscn")
-onready var bulletPOS = $bulletSpawn
+onready var bulletPOS = $Camera/bulletSpawn
 
 
 
@@ -58,9 +58,6 @@ func _process (delta):
 
 
 func _input (event):
-	if Input.is_action_just_pressed("p_shoot"):
-		shoot()
-	
 	if event.is_action_pressed("p_interact"):
 		print("Interact")
 		if $Camera/RayCast.is_colliding():
@@ -78,13 +75,16 @@ func _input (event):
 					isHoldng = true
 					reparent(raycastObject, holdPosition)
 					raycastObject.global_transform.origin = holdPosition.global_transform.origin
-					
+			elif (raycastObject.name == "GravChanger"):
+				raycastObject.isActive = true
 					
 				
 				
 	if event.is_action_pressed("p_shoot"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		else:
+			shoot()
 	if event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	# did the mouse move?
@@ -157,5 +157,7 @@ func reparent(child: Node, new_parent: Node):
 	
 	
 func shoot():
+	print("pe pwe")
 	var bullet = bulletScene.instance()
-	get_tree().get_current_scene().add_child(bullet)
+	get_node("/root/Spatial").add_child(bullet)
+	bullet.global_transform = bulletPOS.global_transform
