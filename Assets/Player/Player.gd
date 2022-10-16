@@ -7,7 +7,7 @@ var inventory = []
 var ammo : int = 15
 var currentHealth
 var tooltipText = ""
-var selectedItem = 1
+var selectedItem = 0
 
 
 
@@ -60,13 +60,16 @@ func _process (delta):
 
 func _input (event):
 	if event.is_action_released("scroll_down"):
-		if selectedItem != 1:
+		if selectedItem != 0:
 			selectedItem -= 1
 			print(selectedItem)
+			updateHand()
 	if event.is_action_released("scroll_up"):
-		if selectedItem != (inventory.size() + 1):
+		print("Size" + String(inventory.size()))
+		if selectedItem < (inventory.size() - 1):
 			selectedItem += 1
 			print(selectedItem)
+			updateHand()
 	
 	if event.is_action_pressed("p_interact"):
 		print("Interact")
@@ -76,6 +79,7 @@ func _input (event):
 			if canPickup(raycastObject):
 				pickupItem(raycastObject)
 				raycastObject.queue_free()
+				$HUD.updateHud()
 			elif canMove(raycastObject):
 				if isHoldng:
 					isHoldng = false
@@ -144,6 +148,7 @@ func pickupItem(item):
 	if item.itemID == 2:
 		inventory.append({"ID":2,"quantity": 1,"Color": item.Colour})
 		print(inventory)
+		updateHand()
 		return
 	for i in inventory:
 		if i.ID == item.itemID:
@@ -152,6 +157,7 @@ func pickupItem(item):
 			return
 	inventory.append({"ID":item.itemID,"quantity": 1})
 	print(inventory)
+	updateHand()
 
 func canMove(item):
 	if ("moveable" in item.name):
@@ -171,3 +177,12 @@ func shoot():
 	var bullet = bulletScene.instance()
 	get_node("/root/Spatial").add_child(bullet)
 	bullet.global_transform = bulletPOS.global_transform
+
+
+
+func updateHand():
+	print("Hand update: " + String(inventory[selectedItem].ID))
+	if (inventory[selectedItem].ID == 2):
+		var material = $handPosition/Keycard.get_material()
+		material.albedo_color = inventory[selectedItem].Color
+		$handPosition/Keycard.visible = true

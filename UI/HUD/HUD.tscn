@@ -20,7 +20,7 @@ margin_right = 526.0
 margin_bottom = 613.0
 items = [ "Item 1", ExtResource( 1 ), false, "Item 2", ExtResource( 1 ), false, "Item 3", ExtResource( 1 ), false ]
 auto_height = true
-max_columns = 3
+max_columns = 10
 same_column_width = true
 icon_mode = 0
 
