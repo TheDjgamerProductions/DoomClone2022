@@ -7,6 +7,7 @@ var inventory = []
 var ammo : int = 15
 var currentHealth
 var tooltipText = ""
+var selectedItem = 1
 
 
 
@@ -58,6 +59,15 @@ func _process (delta):
 
 
 func _input (event):
+	if event.is_action_released("scroll_down"):
+		if selectedItem != 1:
+			selectedItem -= 1
+			print(selectedItem)
+	if event.is_action_released("scroll_up"):
+		if selectedItem != (inventory.size() + 1):
+			selectedItem += 1
+			print(selectedItem)
+	
 	if event.is_action_pressed("p_interact"):
 		print("Interact")
 		if $Camera/RayCast.is_colliding():
