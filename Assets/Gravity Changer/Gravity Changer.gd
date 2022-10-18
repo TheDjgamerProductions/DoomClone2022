@@ -5,7 +5,10 @@ extends CSGBox
 # var a = 2
 # var b = "text"
 
-var isActive = false
+
+
+var itemID = 1
+var is_Active = false
 
 
 
@@ -19,7 +22,7 @@ func _ready():
 #	pass
 
 func _input (event):
-	if isActive:
+	if is_Active:
 		if event.is_action_released("ui_up"):
 			Global.playerNode.jumpStrength -= 1
 		if event.is_action_released("ui_down"):

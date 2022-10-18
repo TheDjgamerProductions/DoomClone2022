@@ -2,7 +2,7 @@ extends CSGBox
 
 var itemID = 2
 export(Color) var Colour
-export(String) var ColourName
+export(String) var Colour_Name
 
 # Declare member variables here. Examples:
 # var a = 2

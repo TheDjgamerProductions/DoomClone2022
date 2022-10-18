@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Enemy/Template Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/Window.material" type="Material" id=2]
@@ -16,7 +16,9 @@ extents = Vector3( 6.63994, 2.40058, 6.04147 )
 [sub_resource type="CubeMesh" id=4]
 
 [sub_resource type="CapsuleShape" id=5]
-height = 0.693865
+height = 0.950247
+
+[sub_resource type="CapsuleShape" id=8]
 
 [node name="Basic Enemy" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -57,8 +59,8 @@ shape = SubResource( 5 )
 autostart = true
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1.14191, 0, 0, 0, -4.92478e-08, 1.06122, 0, -1.17796, -4.84995e-08, 0, 0, 0 )
-shape = SubResource( 5 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 8 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="HurtArea/Hurt Timer" to="." method="_on_Hurt_Timer_timeout"]

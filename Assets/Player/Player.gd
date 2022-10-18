@@ -82,10 +82,12 @@ func _input (event):
 				$HUD.updateHud()
 			elif canMove(raycastObject):
 				if isHoldng:
+					raycastObject.set_mode(1)
 					isHoldng = false
 					reparent(raycastObject, get_tree().current_scene)
 					raycastObject.global_transform.origin = holdPosition.global_transform.origin
 				else:
+					raycastObject.set_mode(0)
 					isHoldng = true
 					reparent(raycastObject, holdPosition)
 					raycastObject.global_transform.origin = holdPosition.global_transform.origin
@@ -173,7 +175,6 @@ func reparent(child: Node, new_parent: Node):
 	
 	
 func shoot():
-	print("pe pwe")
 	var bullet = bulletScene.instance()
 	get_node("/root/Spatial").add_child(bullet)
 	bullet.global_transform = bulletPOS.global_transform
@@ -181,8 +182,18 @@ func shoot():
 
 
 func updateHand():
-	print("Hand update: " + String(inventory[selectedItem].ID))
+	var held_objects = $handPosition.get_children()
+	for i in held_objects:
+		if i.name != "Keycard":
+			i.queue_free()
+	$handPosition/Keycard.visible = false
 	if (inventory[selectedItem].ID == 2):
 		var material = $handPosition/Keycard.get_material()
 		material.albedo_color = inventory[selectedItem].Color
 		$handPosition/Keycard.visible = true
+	else:
+		print(inventory[selectedItem].ID)
+		var object = Global.itemDB[inventory[selectedItem].ID].Model
+		var objectInstance = object.instance()
+		$handPosition.add_child(objectInstance)
+		objectInstance.is_Active = true

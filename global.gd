@@ -2,12 +2,12 @@ extends Node
 
 var itemDB = [
 	{"ID": 0, "Name": "Test Item", "Type": "Weapon", "DmgMin": 0, "DmgMax": 10,"Icon": "res://icon.png", "Model": ""},
-	{"ID": 1, "Name": "Test Item 1", "Type": "Gadget", "Script": "" ,"Icon": "res://icon.png", "Model": ""},
+	{"ID": 1, "Name": "Gravity Changer", "Type": "Gadget", "Script": "res://Assets/Gravity Changer/Gravity Changer.gd" ,"Icon": "res://icon.png", "Model": preload("res://Assets/Gravity Changer/Gravity Changer.tscn")},
 	{"ID": 2, "Name": "Keycard", "Type": "Keycard","Icon": "res://icon.png", "Model": ""}
  ]
 
 var enemyDB = [
-	{"ID": 0, "Name": "Basic","DmgMin":5,"DmgMax":10,"Speed":1,"Health":10,"DetectionRadius":5}
+	{"ID": 0, "Name": "Basic","Dmg_Min":5,"Dmg_Max":10,"Speed":1,"Health":10,"Detection_Radius":5}
 
 
 ]

@@ -1,12 +1,12 @@
 extends Spatial
 
-var playerNear = false
+var player_Near = false
 onready var collider = get_node("Keycard Door/StaticBody/CollisionShape")
 export(Color) var keycard_colour
-export(bool) var needsKeycard
+export(bool) var needs_Keycard
 onready var tween = get_node("Tween")
-onready var closedPosition = self.global_transform.origin
-export(int) var openHight
+onready var closed_Position = self.global_transform.origin
+export(int) var open_Hight
 var playerNode
 
 
@@ -19,13 +19,12 @@ var playerNode
 func _ready():
 	var material = $"Keycard Door".get_surface_material(0)
 	material.albedo_color = keycard_colour
-	print(closedPosition)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if playerNear && Input.is_action_just_pressed("p_interact"): #Checks if the player is near and has pressed the interact key
-		if needsKeycard:
+	if player_Near && Input.is_action_just_pressed("p_interact"): #Checks if the player is near and has pressed the interact key
+		if needs_Keycard:
 			print("Needs keycard")
 			if hasKeycard(keycard_colour):
 				open()
@@ -43,7 +42,7 @@ func _on_Area_body_entered(body:Node):
 	if (body.name) == "Player":
 		body.tooltipText = "Press E to Interact"
 		playerNode = body
-		playerNear = true
+		player_Near = true
 
 
 
@@ -51,14 +50,14 @@ func _on_Area_body_entered(body:Node):
 func _on_Area_body_exited(body:Node):
 	if (body.name) == "Player":
 		body.tooltipText = ""
-		playerNear = false
+		player_Near = false
 
 
 
 func open():
 	print("Open")
 	#Set up the tween
-	tween.interpolate_property($".","translation",closedPosition,closedPosition + Vector3(0,openHight,0),0.5,tween.TRANS_LINEAR,tween.EASE_IN_OUT)
+	tween.interpolate_property($".","translation",closed_Position,closed_Position + Vector3(0,open_Hight,0),0.5,tween.TRANS_LINEAR,tween.EASE_IN_OUT)
 	tween.start() #Play the tween
 	yield(get_tree().create_timer(5.0), "timeout") #Wait 5 secounds
 	close() #Close the door
@@ -66,7 +65,7 @@ func open():
 func close():
 	print("Close")
 	#Set up the tween
-	tween.interpolate_property($".","translation",self.global_transform.origin,closedPosition,0.5,tween.TRANS_LINEAR,tween.EASE_IN_OUT)
+	tween.interpolate_property($".","translation",self.global_transform.origin,closed_Position,0.5,tween.TRANS_LINEAR,tween.EASE_IN_OUT)
 	tween.start() #play the tween
 
 

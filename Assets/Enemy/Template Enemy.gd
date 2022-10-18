@@ -8,10 +8,10 @@ var path_node = 0
 
 
 var speed
-var DmgMin
-var DmgMax 
+var Dmg_Min
+var Dmg_Max 
 var Health
-var DetectionRadius
+var Detection_Radius
 var moving = false
 var rng = RandomNumberGenerator.new()
 
@@ -24,10 +24,10 @@ onready var area = $Area
 func _ready():
 	var stats = Global.enemyDB[ID]
 	speed = stats.Speed
-	DmgMin = stats.DmgMin
-	DmgMax = stats.DmgMax
+	Dmg_Min = stats.Dmg_Min
+	Dmg_Max = stats.Dmg_Max
 	Health = stats.Health
-	DetectionRadius = stats.DetectionRadius
+	Detection_Radius = stats.Detection_Radius
 
 
 
@@ -52,8 +52,8 @@ func move_to(target_pos):
 
 
 func canMove():
-	var overlapingBodies = area.get_overlapping_bodies()
-	for i in overlapingBodies:
+	var overlaping_Bodies = area.get_overlapping_bodies()
+	for i in overlaping_Bodies:
 		if i.name == "Player":
 			return(true)
 	return(false)
@@ -76,7 +76,7 @@ func canAttack():
 func _on_Hurt_Timer_timeout():
 	if canAttack():
 		rng.randomize()
-		player.currentHealth -= rng.randi_range(DmgMin,DmgMax)
+		player.currentHealth -= rng.randi_range(Dmg_Min,Dmg_Max)
 		
 func take_damage(damage):
 	print("tesr")
