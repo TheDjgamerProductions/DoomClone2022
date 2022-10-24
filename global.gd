@@ -31,8 +31,5 @@ func _ready():
 func _process(delta):
 	var player = get_tree().get_nodes_in_group("Player")
 	if player:
-		
 		playerNode = player[0]
 		set_process(false)
-	else:
-		print("sad")
