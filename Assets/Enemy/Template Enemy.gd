@@ -47,7 +47,7 @@ func _physics_process(delta):
 
 
 func move_to(target_pos):
-	path = nav.get_simple_path(global_transform.origin, Vector3(target_pos.x,target_pos.y+5,target_pos.z))
+	path = nav.get_simple_path(global_transform.origin, Vector3(target_pos.x,target_pos.y+50,target_pos.z))
 	path_node = 0
 
 
@@ -79,5 +79,5 @@ func _on_Hurt_Timer_timeout():
 		player.currentHealth -= rng.randi_range(Dmg_Min,Dmg_Max)
 		
 func take_damage(damage):
-	print("tesr")
+	print("ouchies")
 	Health -= damage

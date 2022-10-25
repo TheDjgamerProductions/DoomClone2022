@@ -17,4 +17,4 @@ func _ready():
 
 
 func _on_Button_pressed():
-	OS.alert("test")
+	get_tree().quit()

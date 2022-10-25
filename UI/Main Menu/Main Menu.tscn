@@ -46,12 +46,13 @@ text = "Play"
 script = ExtResource( 1 )
 scene_to_load = "res://Levels/Hub.tscn"
 
-[node name="Button" type="Button" parent="ColorRect/Layout/Scene Buttons"]
+[node name="Settings" type="Button" parent="ColorRect/Layout/Scene Buttons"]
 margin_top = 24.0
 margin_right = 223.0
 margin_bottom = 44.0
 text = "Settings"
 script = ExtResource( 1 )
+scene_to_load = "res://UI/Setings/Settings.tscn"
 
 [node name="Button" type="Button" parent="ColorRect/Layout"]
 margin_top = 84.0

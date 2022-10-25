@@ -7,6 +7,8 @@ radius = 0.231848
 height = 0.816938
 
 [node name="Area" type="Area"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 1 )
 speed = 20.0
 

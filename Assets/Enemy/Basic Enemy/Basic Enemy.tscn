@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Enemy/Template Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/Window.material" type="Material" id=2]
@@ -11,16 +11,16 @@ albedo_color = Color( 1, 0, 0, 1 )
 [sub_resource type="CapsuleShape" id=6]
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 6.63994, 2.40058, 6.04147 )
+extents = Vector3( 19.3523, 1.52207, 20.3794 )
 
 [sub_resource type="CubeMesh" id=4]
 
 [sub_resource type="CapsuleShape" id=5]
 height = 0.950247
 
-[sub_resource type="CapsuleShape" id=8]
-
 [node name="Basic Enemy" type="KinematicBody"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
@@ -44,8 +44,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42275, 0.204553 )
 shape = SubResource( 3 )
 
 [node name="CSGMesh" type="CSGMesh" parent="Area"]
-transform = Transform( 6.61036, 0, 0, 0, 2.43917, 0, 0, 0, 6.07919, 0, 1.42275, 0.204553 )
-visible = false
+transform = Transform( 19.7688, 0, 0, 0, 1.32205, 0, 0, 0, 20.4963, 0, 1.42275, 0.204553 )
 mesh = SubResource( 4 )
 material = ExtResource( 2 )
 
@@ -59,8 +58,8 @@ shape = SubResource( 5 )
 autostart = true
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 8 )
+transform = Transform( 1.14191, 0, 0, 0, -4.92478e-08, 1.06122, 0, -1.17796, -4.84995e-08, 0, 0, 0 )
+shape = SubResource( 5 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="HurtArea/Hurt Timer" to="." method="_on_Hurt_Timer_timeout"]

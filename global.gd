@@ -7,7 +7,7 @@ var itemDB = [
  ]
 
 var enemyDB = [
-	{"ID": 0, "Name": "Basic","Dmg_Min":5,"Dmg_Max":10,"Speed":1,"Health":10,"Detection_Radius":5}
+	{"ID": 0, "Name": "Basic","Dmg_Min":5,"Dmg_Max":10,"Speed":10,"Health":10,"Detection_Radius":5}
 
 
 ]

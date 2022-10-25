@@ -98,9 +98,8 @@ material = ExtResource( 2 )
 [node name="Lift" parent="CSGCylinder/L1 Area" instance=ExtResource( 3 )]
 transform = Transform( 1.02944, 0, -2.29932, 0, 4.20935, 0, 2.58569, 0, 0.915429, -37.2696, -8.06543, -104.859 )
 height = 30.0188
-targetScene = "res://Levels/L1.tscn"
-moveOnStart = false
-moveHight = 10
+target_Scene = "res://Levels/L1.tscn"
+move_Hight = 10
 
 [node name="CSGCylinder" type="CSGCylinder" parent="CSGCylinder/L1 Area"]
 transform = Transform( 0.841746, 0, 0.539873, 0, 1, 0, -0.539873, 0, 0.841746, -37.3516, 8.16637, -104.848 )
@@ -109,4 +108,4 @@ radius = 5.84753
 
 [node name="Keycard Door" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.920943, 0, 0.102464, 0, 1.27733, 0, -0.3772, 0, 0.250168, -16.2767, -2.98443, -50.3344 )
-openHight = 14
+open_Hight = 10
