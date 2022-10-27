@@ -273,7 +273,7 @@ transform = Transform( 0.06, -3.8466e-09, -8.33728e-16, 5.24537e-09, 0.044, 9.53
 [node name="Counter5" parent="Navigation/NavigationMeshInstance/Layout" instance=ExtResource( 10 )]
 transform = Transform( 0.06, -3.8466e-09, -8.33728e-16, 5.24537e-09, 0.044, 9.53674e-09, 0, 1.04904e-08, -0.04, -21.455, -9.21964, 16.979 )
 
-[node name="Counter6" parent="Navigation/NavigationMeshInstance/Layout" instance=ExtResource( 10 )]
+[node name="moveableCounter6" parent="Navigation/NavigationMeshInstance/Layout" instance=ExtResource( 10 )]
 transform = Transform( 0.06, -3.8466e-09, -8.33728e-16, 5.24537e-09, 0.044, 9.53674e-09, 0, 1.04904e-08, -0.04, -17.72, -9.21964, 16.979 )
 
 [node name="Counter7" parent="Navigation/NavigationMeshInstance/Layout" instance=ExtResource( 10 )]

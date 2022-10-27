@@ -30,7 +30,7 @@ var held_object: Object
 var isHoldng = false
 onready var bulletScene = preload("res://Assets/Bullet/Bullet.tscn")
 onready var bulletPOS = $Camera/bulletSpawn
-
+var rng = RandomNumberGenerator.new()
 
 
 
@@ -38,12 +38,16 @@ onready var bulletPOS = $Camera/bulletSpawn
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	camera.fov = Global.settings.FOV
 	currentHealth = MaxHelth
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process (delta):
+	if Global.settings.DrunkMode:
+		camera.fov += rng.randf_range(-10.0,10.0) 
+		camera.set_rotation_degrees(Vector3(rng.randf_range(-10.0,10.0),randf_range(-10.0,10.0),randf_range(-10.0,10.0)))
 	if currentHealth == 0:
 		get_tree().change_scene("res://UI/Death Screen/Death Screen.tscn")
 	# rotate camera along X axis

@@ -15,6 +15,13 @@ var enemyDB = [
 var score = 0
 
 var playerNode : Node
+
+var settings = {
+	"FOV": 90.0,
+	"DrunkMode": true
+	
+	
+}
  
 
 # Declare member variables here. Examples:

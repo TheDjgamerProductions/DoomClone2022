@@ -37,6 +37,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	if Health <=0:
+		Global.score += 10
 		queue_free()
 	if path_node < path.size():
 		var direction = (path[path_node] - global_transform.origin)

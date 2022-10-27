@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://UI/Button Handler.gd" type="Script" id=1]
 [ext_resource path="res://UI/Button_Script.gd" type="Script" id=2]
+[ext_resource path="res://UI/Setings/manager.gd" type="Script" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -19,3 +20,49 @@ margin_bottom = 20.0
 text = "Back"
 script = ExtResource( 2 )
 scene_to_load = "res://UI/Main Menu/Main Menu.tscn"
+
+[node name="manager" type="Control" parent="."]
+margin_left = -61.0
+margin_top = 6.0
+margin_right = -21.0
+margin_bottom = 46.0
+script = ExtResource( 3 )
+
+[node name="FOV" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="FOV" type="HSlider" parent="FOV"]
+margin_left = 33.0
+margin_top = 25.0
+margin_right = 243.0
+margin_bottom = 41.0
+step = 1.1
+
+[node name="foblable" type="Label" parent="FOV"]
+margin_left = 1.0
+margin_top = 26.0
+margin_right = 41.0
+margin_bottom = 40.0
+text = "FOV"
+
+[node name="fovAmount" type="Label" parent="FOV"]
+margin_left = 243.0
+margin_top = 26.0
+margin_right = 283.0
+margin_bottom = 40.0
+text = "0"
+
+[node name="Durnk Mode" type="Control" parent="."]
+margin_left = 1.0
+margin_top = 39.0
+margin_right = 41.0
+margin_bottom = 79.0
+
+[node name="CheckButton" type="CheckButton" parent="Durnk Mode"]
+margin_right = 76.0
+margin_bottom = 40.0
+text = "Drunk mode"
+
+[connection signal="value_changed" from="FOV/FOV" to="manager" method="_on_FOV_value_changed"]
+[connection signal="toggled" from="Durnk Mode/CheckButton" to="manager" method="_on_CheckButton_toggled"]
