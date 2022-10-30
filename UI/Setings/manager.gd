@@ -24,4 +24,4 @@ func _on_FOV_value_changed(value):
 
 
 func _on_CheckButton_toggled(button_pressed):
-	print(button_pressed)
+	Global.settings.DrunkMode = button_pressed

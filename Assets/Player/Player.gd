@@ -47,7 +47,7 @@ func _ready():
 func _process (delta):
 	if Global.settings.DrunkMode:
 		camera.fov += rng.randf_range(-10.0,10.0) 
-		camera.set_rotation_degrees(Vector3(rng.randf_range(-10.0,10.0),randf_range(-10.0,10.0),randf_range(-10.0,10.0)))
+		camera.set_rotation_degrees(Vector3(rng.randf_range(-10.0,10.0),rng.randf_range(-10.0,10.0),rng.randf_range(-10.0,10.0)))
 	if currentHealth == 0:
 		get_tree().change_scene("res://UI/Death Screen/Death Screen.tscn")
 	# rotate camera along X axis

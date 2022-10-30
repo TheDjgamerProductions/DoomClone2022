@@ -18,7 +18,7 @@ var playerNode : Node
 
 var settings = {
 	"FOV": 90.0,
-	"DrunkMode": true
+	"DrunkMode": false
 	
 	
 }

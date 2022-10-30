@@ -12,7 +12,7 @@ buttonPath = NodePath("Scene Buttons")
 
 [node name="Scene Buttons" type="Control" parent="."]
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 21.0
 
 [node name="Back" type="Button" parent="Scene Buttons"]
 margin_right = 42.0
@@ -29,8 +29,10 @@ margin_bottom = 46.0
 script = ExtResource( 3 )
 
 [node name="FOV" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 3.0
+margin_top = 21.0
+margin_right = 43.0
+margin_bottom = 61.0
 
 [node name="FOV" type="HSlider" parent="FOV"]
 margin_left = 33.0
@@ -54,10 +56,10 @@ margin_bottom = 40.0
 text = "0"
 
 [node name="Durnk Mode" type="Control" parent="."]
-margin_left = 1.0
-margin_top = 39.0
-margin_right = 41.0
-margin_bottom = 79.0
+margin_left = 4.0
+margin_top = 60.0
+margin_right = 44.0
+margin_bottom = 100.0
 
 [node name="CheckButton" type="CheckButton" parent="Durnk Mode"]
 margin_right = 76.0
