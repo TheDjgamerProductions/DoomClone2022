@@ -1,0 +1,5 @@
+[gd_scene format=2]
+
+[node name="CSGBox" type="CSGBox"]
+height = 1.70042
+depth = 0.802624
