@@ -1,4 +1,4 @@
-extends Control
+extends CSGBox
 
 
 # Declare member variables here. Examples:
@@ -8,7 +8,6 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"../FOV/FOVSlide".value = Global.settings.FOV
 	pass # Replace with function body.
 
 
@@ -17,11 +16,13 @@ func _ready():
 #	pass
 
 
-
-
-func _on_FOV_value_changed(value):
-	Global.settings.FOV = value
-	$"../FOV/fovAmount".text = str(value)
-
-func _on_CheckButton_toggled(button_pressed):
-	Global.settings.DrunkMode = button_pressed
+func _on_Area_body_entered(body):
+	if body.name == "Player":
+		if body.currentHealth == 100:
+			pass
+		elif body.currentHealth + 10 >=100:
+			body.currentHealth = 100
+			queue_free()
+		else:
+			body.currentHealth += 10
+			queue_free()

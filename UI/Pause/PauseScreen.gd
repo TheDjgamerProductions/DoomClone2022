@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 
 # Declare member variables here. Examples:
@@ -8,7 +8,6 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"../FOV/FOVSlide".value = Global.settings.FOV
 	pass # Replace with function body.
 
 
@@ -17,11 +16,13 @@ func _ready():
 #	pass
 
 
+func _on_Resume_pressed():
+	self.hide()
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
-func _on_FOV_value_changed(value):
-	Global.settings.FOV = value
-	$"../FOV/fovAmount".text = str(value)
-
-func _on_CheckButton_toggled(button_pressed):
-	Global.settings.DrunkMode = button_pressed
+func _on_Menu_pressed():
+	get_tree().change_scene("res://UI/Main Menu/Main Menu.tscn")
+	get_tree().paused = false
+	self.hide()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://UI/HUD/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Items/Keycard/Keycard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Pause/Pause.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 1.19645
@@ -48,3 +49,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11047, 0.684401, -2.1948 )
 transform = Transform( 0.331993, 0, 0, 0, 0.0142222, 0, 0, 0, 0.250822, 0, 0, 0 )
 visible = false
 script = null
+
+[node name="Paused" parent="." instance=ExtResource( 4 )]

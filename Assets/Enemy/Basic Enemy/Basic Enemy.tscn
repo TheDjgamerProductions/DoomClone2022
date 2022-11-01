@@ -55,6 +55,7 @@ transform = Transform( 1.14191, 0, 0, 0, -4.92478e-08, 1.06122, 0, -1.17796, -4.
 shape = SubResource( 5 )
 
 [node name="Hurt Timer" type="Timer" parent="HurtArea"]
+wait_time = 0.5
 autostart = true
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

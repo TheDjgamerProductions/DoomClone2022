@@ -34,12 +34,12 @@ margin_top = 21.0
 margin_right = 43.0
 margin_bottom = 61.0
 
-[node name="FOV" type="HSlider" parent="FOV"]
+[node name="FOVSlide" type="HSlider" parent="FOV"]
 margin_left = 33.0
 margin_top = 25.0
 margin_right = 243.0
 margin_bottom = 41.0
-step = 1.1
+value = 9.9
 
 [node name="foblable" type="Label" parent="FOV"]
 margin_left = 1.0
@@ -66,5 +66,5 @@ margin_right = 76.0
 margin_bottom = 40.0
 text = "Drunk mode"
 
-[connection signal="value_changed" from="FOV/FOV" to="manager" method="_on_FOV_value_changed"]
+[connection signal="value_changed" from="FOV/FOVSlide" to="manager" method="_on_FOV_value_changed"]
 [connection signal="toggled" from="Durnk Mode/CheckButton" to="manager" method="_on_CheckButton_toggled"]

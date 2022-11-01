@@ -101,11 +101,10 @@ func _input (event):
 				
 				
 	if event.is_action_pressed("p_shoot"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		else:
-			shoot()
+		shoot()
 	if event.is_action_pressed("ui_cancel"):
+		$Paused.show()
+		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	# did the mouse move?
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
