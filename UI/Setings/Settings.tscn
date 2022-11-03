@@ -39,7 +39,8 @@ margin_left = 33.0
 margin_top = 25.0
 margin_right = 243.0
 margin_bottom = 41.0
-value = 9.9
+min_value = 10.0
+value = 10.0
 
 [node name="foblable" type="Label" parent="FOV"]
 margin_left = 1.0

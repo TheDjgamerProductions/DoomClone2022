@@ -17,7 +17,7 @@ var score = 0
 var playerNode : Node
 
 var settings = {
-	"FOV": 90.0,
+	"FOV": 90,
 	"DrunkMode": false
 	
 	

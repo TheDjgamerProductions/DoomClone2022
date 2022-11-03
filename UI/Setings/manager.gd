@@ -9,6 +9,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"../FOV/FOVSlide".value = Global.settings.FOV
+	$"../Durnk Mode/CheckButton".pressed = Global.settings.DrunkMode
 	pass # Replace with function body.
 
 
