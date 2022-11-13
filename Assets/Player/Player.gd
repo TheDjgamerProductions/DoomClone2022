@@ -48,7 +48,7 @@ func _process (delta):
 	if Global.settings.DrunkMode:
 		camera.fov += rng.randf_range(-10.0,10.0) 
 		camera.set_rotation_degrees(Vector3(rng.randf_range(-10.0,10.0),rng.randf_range(-10.0,10.0),rng.randf_range(-10.0,10.0)))
-	if currentHealth == 0:
+	if currentHealth <= 0:
 		get_tree().change_scene("res://UI/Death Screen/Death Screen.tscn")
 	# rotate camera along X axis
 	camera.rotation_degrees -= Vector3(rad2deg(mouseDelta.y), 0, 0) * lookSensitivity * delta
@@ -83,7 +83,7 @@ func _input (event):
 			if canPickup(raycastObject):
 				pickupItem(raycastObject)
 				raycastObject.queue_free()
-				$HUD.updateHud()
+				$HUD.updateInventory()
 			elif canMove(raycastObject):
 				if isHoldng:
 					raycastObject.set_mode(1)

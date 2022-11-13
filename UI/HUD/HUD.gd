@@ -23,7 +23,7 @@ func _process(delta):
 	$Hart.value = player.currentHealth
 	$HealthLabel.text = str(player.currentHealth)
 	
-func updateHud():
+func updateInventory():
 	print("updiang HUD")
 	$Inventory.clear()
 	for i in player.inventory:
@@ -33,3 +33,4 @@ func updateHud():
 		var itemName = item.Name
 		var itemIcon = load(item.Icon)
 		$Inventory.add_item(itemName,itemIcon, true)
+
